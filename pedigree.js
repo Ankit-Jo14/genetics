@@ -90,9 +90,16 @@ console.log(Atreedatacorrected);
 // console.log(inventory.find(a => a.name === "apples" && a.quantity == 1));
 
 var table =[
-  {"name": "Seth",   "haschild": "Eve"},
-  {"name": "Awan",  "haschild": "Eve"},
-  {"name": "Eve",  "haschild": ""},
+  {"name": "Hawkeye",   "haschild": ""},
+  {"name": "Richland",  "haschild": "Hawkeye"},
+  {"name": "Mukden",  "haschild": "Hawkeye"},
+  {"name": "Adams",  "haschild": "Richland"},
+  {"name": "Harly",  "haschild": "Mukden"},
+  {"name": "Monroe",   "haschild": "Mukden"},
+  {"name": "Dunfield",  "haschild": "Adams"},
+  {"name": "Illini",  "haschild": "Adams"},
+  {"name": "Ankit",   "haschild": "Dunfield"},
+
 
 ]
 
@@ -110,6 +117,7 @@ var root = d3.stratify()
     // declares a tree layout and assigns the size
     var treemap = d3.tree()
         .size([height, width]);
+        var tooltip = d3.select("body").append("div").style("opacity","0").style("positon","absolute");
 
     //  assigns the data to a hierarchy using parent-child relationships
     // var nodes = d3.hierarchy(treeData, function(d) {
@@ -146,23 +154,21 @@ var root = d3.stratify()
     var node = g.selectAll(".node")
         .data(nodes.descendants())
       .enter().append("g")
-      //  .attr("class", function(d) {
-    //      return "node" +
-      //      (d.children ? " node--internal" : " node--leaf"); })
+       .attr("class", function(d) {
+        return "node" +
+         (d.children ? " node--internal" : " node--leaf"); })
         .attr("transform", function(d) {
           return "translate(" + d.y + "," + d.x + ")"; });
 
     // adds the circle to the node
     node.append("circle")
-      .attr("r", function(d) { return d.data.value; })
-    //  .style("stroke", function(d) { return d.data.type; })
-    //  .style("fill", function(d) { return d.data.level; });
-
+      .attr("r", 3 )
+      .style("stroke", "steelblue")
+      .style("fill", "#fff")
+      .style("stroke-width" , 3);
     // adds the text to the node
     node.append("text")
-      .attr("dy", ".35em")
-      .attr("x", function(d) { return d.children ?
-        (d.data.value + 4) * -1 : d.data.value + 4 })
+
       .style("text-anchor", function(d) {
         return d.children ? "end" : "start"; })
       .text(function(d) { return d.data.name; });

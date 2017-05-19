@@ -9,11 +9,7 @@ path {
   stroke-width: 2px;
 }
 
-#tree {
-    height: 200px;
-    width: 50%;
-    background-color: powderblue;
-}
+
 
 {"name": "Eve",   "parent": "Seth"},
 {"name": "Eve",  "parent": "Awan"},
