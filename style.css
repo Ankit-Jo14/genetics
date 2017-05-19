@@ -1,0 +1,45 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+path {
+  stroke: green;
+  fill: none;
+  stroke-width: 2px;
+}
+
+#tree {
+    height: 200px;
+    width: 50%;
+    background-color: powderblue;
+}
+
+{"name": "Eve",   "parent": "Seth"},
+{"name": "Eve",  "parent": "Awan"},
+{"name": "Seth",  "parent": "Enos"},
+{"name": "Seth",  "parent": "Noam"},
+{"name": "Enos",  "parent": "Cain"},
+{"name": "Enos",  "parent": "Abel"},
+{"name": "Awan",  "parent": "Enoch"},
+{"name": "Awan", "parent": "Azura"}
+
+
+{"name": "Eve",   "childof": "Seth"},
+{"name": "Eve",  "childof": "Awan"},
+{"name": "Seth",  "childof": "Enos"},
+{"name": "Seth",  "childof": "Noam"},
+{"name": "Enos",  "childof": "Cain"},
+{"name": "Enos",  "childof": "Abel"},
+{"name": "Awan",  "childof": "Enoch"},
+{"name": "Awan", "childof": "Azura"}
+
+{"name": "Eve",   "parent": ""},
+{"name": "Cain",  "parent": "Eve"},
+{"name": "Seth",  "parent": "Eve"},
+{"name": "Enos",  "parent": "Seth"},
+{"name": "Noam",  "parent": "Seth"},
+{"name": "Abel",  "parent": "Eve"},
+{"name": "Awan",  "parent": "Eve"},
+{"name": "Enoch", "parent": "Awan"},
+{"name": "Azura", "parent": "Eve"}
