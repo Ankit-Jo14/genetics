@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>D3.js Essential Training for Data Scientists</title>
+     
+      <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="d3.v4.js"></script>
+      <script type="text/javascript" src="home.js"></script>
+      <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="home.css">
+
+   </head>
+   <body>
+      <div id="searchbar">
+         <div class="container" style="width: 100%">
+            <div class="row">
+               <div class="col-md-3">
+                  <label for="cultivar" class="col-form-label">Cultivar</label>
+                  <input class="form-control" type="text" id="cultivar" placeholder="PI Number or name">
+               </div>
+               <div class="col-md-2"> 
+                  <label for="maturitygrp" class="col-form-label">Maturity group</label>
+                  <input class="form-control" type="text" id="maturityGrp" placeholder="Maturity Group">
+               </div>
+               <div class="col-md-2"> 
+                  <label for="year" class="col-form-label">Year</label>
+                  <input class="form-control" type="text" id="year" placeholder="year">
+               </div>
+               <div class="col-md-2"> <label for="origin" class="col-form-label">Origin</label>
+                  <input class="form-control" type="text" id="origin" placeholder="state or country">
+               </div>
+               <div class="col-md-1">
+                  <button type="button" class="btn btn-primary" id="search">Search</button>
+               </div>
+               <div class="col-md-1">
+                  <button type="button" class="btn btn-warning">Reset All</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="div2">
+       <div id="loader"><img src="triangle_square_animation.gif"></div>
+        <table id="dataTable" class="table table-hover">
+            <thead id="tableHeader">
+            </thead>
+            <tbody id = "tableBody">
+            </tbody>
+         </table>
+      </div>
+      <div id="k">
+         <div id="div3">
+         </div>
+         <div id="div4">
+         </div>
+      </div>
+      <
+   </body>
+</html>

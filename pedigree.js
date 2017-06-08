@@ -98,7 +98,7 @@ var table =[
   {"name": "Monroe",   "haschild": "Mukden"},
   {"name": "Dunfield",  "haschild": "Adams"},
   {"name": "Illini",  "haschild": "Adams"},
-  {"name": "Ankit",   "haschild": "Dunfield"},
+  {"name": "Lee",   "haschild": "Dunfield"},
 
 
 ]
@@ -111,8 +111,8 @@ var root = d3.stratify()
     console.log(root);
 
     var margin = {top: 20, right: 90, bottom: 30, left: 90},
-        width = 660 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        width = 1300 - margin.left - margin.right,
+        height = 750 - margin.top - margin.bottom;
 
     // declares a tree layout and assigns the size
     var treemap = d3.tree()
@@ -136,7 +136,20 @@ var root = d3.stratify()
         g = svg.append("g")
           .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
+       
 
+      svg.append("rect")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .call(d3.zoom()
+        .scaleExtent([1 / 2, 4])
+        .on("zoom", zoomed));
+
+function zoomed() {
+  g.attr("transform", d3.event.transform);
+}
     // adds the links between the nodes
     var link = g.selectAll(".link")
         .data( nodes.descendants().slice(1))
@@ -172,3 +185,6 @@ var root = d3.stratify()
       .style("text-anchor", function(d) {
         return d.children ? "end" : "start"; })
       .text(function(d) { return d.data.name; });
+
+
+      

@@ -1,0 +1,7 @@
+html, body { height: 100%; padding: 0; margin: 0; }
+
+#searchbar { background: #DDD; height:10%; width:100% }
+#div2 {  height:90% ; width:70% ;display: inline-block; overflow: scroll;}
+#div3 { background: #777; height:50% ; width:100% ; white-space: normal; }
+#div4 { background: #444; height:50% ; width:100% ; white-space: normal; }
+#k { background: #444; height:90% ; width:29% ; display: inline-block ; }
