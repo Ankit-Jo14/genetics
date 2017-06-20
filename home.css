@@ -1,7 +1,12 @@
 html, body { height: 100%; padding: 0; margin: 0; }
 
-#searchbar { background: #DDD; height:10%; width:100% }
-#div2 {  height:90% ; width:70% ;display: inline-block; overflow: scroll;}
-#div3 { background: #777; height:50% ; width:100% ; white-space: normal; }
-#div4 { background: #444; height:50% ; width:100% ; white-space: normal; }
-#k { background: #444; height:90% ; width:29% ; display: inline-block ; }
+#searchbar { background: #DDD; min-height:80px; width:100% }
+#dataTableDiv {  height: 900px ; width:100% ; overflow: scroll;}
+#pedigreeTab {height :900px; width:100%;}
+#treeSection { height:100%; width:75%; display: inline-block;}
+#infoSection {  height:100% ; width:20% ; display: inline-block ; vertical-align:top;}
+#infoBox {   height:50% ; width:100% ; border-style: solid;
+   border-color: #ff0000;  }
+#attributeBox {   height:50% ; width:100% ; border-style: solid;
+   border-color: #ff00045; }
+
