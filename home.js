@@ -101,4 +101,10 @@
 
          $tableBody.html(elementstoAppend.join(''));
      }
+
+     function generateAttributeBoxData(tableData){
+        var attributeList = tableData.columns;
+        
+
+     }
  });
