@@ -7,6 +7,8 @@ html, body { height: 100%; padding: 0; margin: 0; }
 #infoSection {  height:100% ; width:20% ; display: inline-block ; vertical-align:top;}
 #infoBox {   height:50% ; width:100% ; border-style: solid;
    border-color: #ff0000;  }
-#attributeBox {   height:50% ; width:100% ; border-style: solid;
-   border-color: #ff00045; }
+#attributeBox {   height:50% ; width:100% ; border-style: solid;border-color: #ff00045; }
 
+#attributeBox h1{ border-style: solid;border-color: #ff00045;border-radius: 15px 15px 0px 0px;
+	margin-top: 0px;  background-color: yellow; }
+#attributes {height: 300px ; width:100% ; overflow: scroll;}
