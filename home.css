@@ -7,7 +7,7 @@ html, body { height: 100%; padding: 0; margin: 0; }
 #infoSection {  height:98% ; width:20% ; display: inline-block ; vertical-align:top;}
 #infoBox { background: #c6c2c21a;  height:50% ; width:100% ;   border-radius: 15px }
 #attributeBox {  background: #c6c2c21a; height:50% ; width:100% ;  border-radius: 15px}
-
+#cultivarInfo {width : 250px; word-wrap: break-word;}
 #attributeBox h2{ border-bottom-style: solid; border-color: #ff00045;border-radius: 15px 15px 0px 0px; text-align: center;
 	margin: 0px 0px 0px 0px; padding: 4px 4px 4px 4px; background-color: #337ab7; color: white }
 #infoBox h2{  border-bottom-style: solid; border-color: #ff00045; border-radius: 15px 15px 0px 0px;text-align: center;
