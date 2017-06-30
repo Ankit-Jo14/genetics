@@ -19,159 +19,237 @@
 
       var table = [{
               "name": "Hawkeye",
-              "haschild": ""
+              "haschild": "",
+              "State" : "Iowa",
+              "MG" : "IIIIIIIIIIIIIIIIIII"
           },
           {
               "name": "Richland",
-              "haschild": "Hawkeye"
+              "haschild": "Hawkeye",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "Mukden",
-              "haschild": "Hawkeye"
+              "haschild": "Hawkeye",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "Adams",
-              "haschild": "Richland"
+              "haschild": "Richland",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "john",
-              "haschild": "Richland"
+              "haschild": "Richland",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "jam",
-              "haschild": "john"
+              "haschild": "john",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "jam1",
-              "haschild": "jam"
+              "haschild": "jam",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "wiz",
-              "haschild": "jam1"
+              "haschild": "jam1",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "khalifa",
-              "haschild": "jam1"
+              "haschild": "jam1",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "jam2",
-              "haschild": "jam"
+              "haschild": "jam",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "jeremy",
-              "haschild": "jam2"
+              "haschild": "jam2",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "nutt",
-              "haschild": "jam2"
+              "haschild": "jam2",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "sam",
-              "haschild": "john"
+              "haschild": "john",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "sam1",
-              "haschild": "sam"
+              "haschild": "sam",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "kapil",
-              "haschild": "sam1"
+              "haschild": "sam1",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "joshi",
-              "haschild": "sam1"
+              "haschild": "sam1",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "sam2",
-              "haschild": "sam"
+              "haschild": "sam",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "samosa",
-              "haschild": "sam2"
+              "haschild": "sam2",
+              "State" : "Iowa",
+              "MG" : "IIIIIIIIIIIIIIIIIII"
           },
           {
               "name": "chatni",
-              "haschild": "sam2"
+              "haschild": "sam2",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "Harly",
-              "haschild": "Mukden"
+              "haschild": "Mukden",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "Harly1",
-              "haschild": "Harly"
+              "haschild": "Harly",
+              "State" : "Iowa",
+              "MG" : "II"
           },
           {
               "name": "Harly2",
-              "haschild": "Harly"
+              "haschild": "Harly",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "Monroe",
-              "haschild": "Mukden"
+              "haschild": "Mukden",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "Monroe1",
-              "haschild": "Monroe"
+              "haschild": "Monroe",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "Monroe2",
-              "haschild": "Monroe"
+              "haschild": "Monroe",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "Dunfield",
-              "haschild": "Adams"
+              "haschild": "Adams",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "Illini",
-              "haschild": "Adams"
+              "haschild": "Adams",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "bill1",
-              "haschild": "Illini"
+              "haschild": "Illini",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "johnthan",
-              "haschild": "bill1"
+              "haschild": "bill1",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "martin",
-              "haschild": "bill1"
+              "haschild": "bill1",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "bill2",
-              "haschild": "Illini"
+              "haschild": "Illini",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "kay",
-              "haschild": "bill2"
+              "haschild": "bill2",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "eliyana",
-              "haschild": "bill2"
+              "haschild": "bill2",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "Lee",
-              "haschild": "Dunfield"
+              "haschild": "Dunfield",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "jackey",
-              "haschild": "Lee"
+              "haschild": "Lee",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "chan",
-              "haschild": "Lee"
+              "haschild": "Lee",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "bruse",
-              "haschild": "Dunfield"
+              "haschild": "Dunfield",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "bruse1",
-              "haschild": "bruse"
+              "haschild": "bruse",
+              "State" : "georgia",
+              "MG" : "III"
           },
           {
               "name": "bruse2",
-              "haschild": "bruse"
+              "haschild": "bruse",
+              "State" : "georgia",
+              "MG" : "III"
           }
       ]
 
@@ -260,7 +338,10 @@
           nodes.forEach(function(d) {
               d.y = d.depth * 180
           });
-
+          
+          //  nodes.forEach(function(d) {
+          //     d.x = d.depth * 100
+          // }); 
           // ****************** Nodes section ***************************
 
           // Update the nodes...
@@ -297,21 +378,21 @@
           //     .text(function(d) { return d.data.name + d.data.paretnt; });
 
           var foreignobj = nodeEnter.append("foreignObject")
-              .attr("width", 50)
-              .attr("height", 60)
-              .attr("y", -20)
+              .attr("width", 100)
+              .attr("height", 30)
+              .attr("y", 0)
               .attr("x", function(d) {
-                  return d.children || d._children ? -52 : 13;
+                  return d.children || d._children ? -112 : 12;
               })
               .attr("text-anchor", function(d) {
                   return d.children || d._children ? "end" : "start";
               })
-              // .append("xhtml:div")
-              // //.style("font", "14px 'Helvetica Neue'")
-              // .html(function(d) {
-              //     return d.data.name + "</br>" + d.data.name + "</br>" + d.data.name
-              // })
-              ;
+               .append("xhtml:div")
+               .attr("class","popupBox")
+               
+               .html(function(d) {
+                  return d.data.name + " | " + d.data.haschild.substring(0,3) + "</br>" + "MG :" + d.data.MG;
+                });
 
           // UPDATE
           var nodeUpdate = nodeEnter.merge(node);
@@ -425,10 +506,11 @@
       });
 
       $("#button2").click(function() {
+         
          d3.selectAll("foreignObject").append("xhtml:div")
              .style("word-wrap" , "break-word")
              .html(function(d) {
-                  return d.data.name + "</br>" + d.data.name + "</br>" + d.data.name
+                  return d.data.name + "</br>" + d.data.name.substring(0,3) + "</br>" + d.data.name
               });
       });
   });

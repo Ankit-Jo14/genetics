@@ -5,7 +5,7 @@
 }
 
 .node text {
-  font: 12px sans-serif;
+  font: 40px sans-serif;
 }
 
 .link {
@@ -14,14 +14,52 @@
   stroke-width: 2px;
 }
 
-svg {
+#treeSection {
    border-style: solid;
    border-color: #ff0000;
 }
 
-#infoBox{
-	border-style: solid;
-   border-color: #ff0000;
+ 
+
+.popupBox{
+       font-size: 12px ;
+       border :solid;
+       border-color : #ff000080;
+       border-radius: 5px;
+       border-width: 2px;
+       padding-left: 2px;
+       padding-right: 2px;
+        
+
+       background: white;
 }
 
-#
+.popupBox:hover{
+     border-color: #ff0000e6;
+      
+     cursor:pointer;
+      
+      
+}
+
+.node:hover {
+      stroke-width: 6px;
+      stroke: #ff0000e6;
+}
+
+g:hover > .node{
+	 stroke-width: 6px;
+	  stroke: #ff0000e6;
+}
+
+
+.node:hover .popupBox{
+  border-color: #ff0000e6;
+	 
+     
+}
+
+
+ 
+
+

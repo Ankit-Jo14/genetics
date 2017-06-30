@@ -1,14 +1,16 @@
 html, body { height: 100%; padding: 0; margin: 0; }
 
 #searchbar { background: #DDD; min-height:80px; width:100% }
-#dataTableDiv {  height: 900px ; width:100% ; overflow: scroll;}
-#pedigreeTab {height :900px; width:100%;}
-#treeSection { height:100%; width:75%; display: inline-block;}
-#infoSection {  height:100% ; width:20% ; display: inline-block ; vertical-align:top;}
-#infoBox {   height:50% ; width:100% ; border-style: solid;
-   border-color: #ff0000;  }
-#attributeBox {   height:50% ; width:100% ; border-style: solid;border-color: #ff00045; }
+#dataTableDiv {  height: 850px ; width:100% ; overflow: scroll;}
+#pedigreeTab {height :850px; width:100%; padding-top: 5px;}
+#treeSection { height:98%; width:75%; display: inline-block; border-radius: 15px}
+#infoSection {  height:98% ; width:20% ; display: inline-block ; vertical-align:top;}
+#infoBox { background: #c6c2c21a;  height:50% ; width:100% ;   border-radius: 15px }
+#attributeBox {  background: #c6c2c21a; height:50% ; width:100% ;  border-radius: 15px}
 
-#attributeBox h1{ border-style: solid;border-color: #ff00045;border-radius: 15px 15px 0px 0px;
-	margin-top: 0px;  background-color: yellow; }
-#attributes {height: 300px ; width:100% ; overflow: scroll;}
+#attributeBox h2{ border-bottom-style: solid; border-color: #ff00045;border-radius: 15px 15px 0px 0px; text-align: center;
+	margin: 0px 0px 0px 0px; padding: 4px 4px 4px 4px; background-color: #337ab7; color: white }
+#infoBox h2{  border-bottom-style: solid; border-color: #ff00045; border-radius: 15px 15px 0px 0px;text-align: center;
+	margin: 0px 0px 0px 0px; padding: 4px 4px 4px 4px; background-color: #337ab7; color: white }
+
+#attributes {height: 380px ; width:100% ; overflow: scroll; border-radius: 0px 0px 15px 15px}

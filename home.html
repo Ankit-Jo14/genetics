@@ -9,7 +9,7 @@
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="d3.v4.js"></script>
     <script type="text/javascript" src="home.js"></script>
-    <script type="text/javascript" src="pedigree.js"></script>
+     
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="home.css">
     <link rel="stylesheet" type="text/css" href="pedigree.css">
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <label for="cultivar" class="col-form-label">Cultivar</label>
-                    <input class="form-control" type="text" id="cultivar" placeholder="PI Number or name">
+                    <input class="form-control" type="text" id="cultivar" placeholder="PI Number or Name or Male or Female">
                 </div>
                 <div class="col-md-1">
                     <label for="maturitygrp" class="col-form-label">Maturity group</label>
@@ -50,17 +50,17 @@
     </div>
     <div>
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item ">
-                <a class="nav-link " data-toggle="tab" href="#home" role="tab">Home</a>
+        <ul class="nav nav-tabs" role="tablist" id="navTabs">
+            <li class="nav-item active ">
+                <a class="nav-link active " data-toggle="tab" href="#home" role="tab">Home</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link active" data-toggle="tab" href="#pedigreeTab" role="tab">Pedigree</a>
+            <li class="nav-item ">
+                <a class="nav-link " data-toggle="tab" href="#pedigreeTab" role="tab">Pedigree</a>
             </li>
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane " id="home" role="tabpanel">
+            <div class="tab-pane active " id="home" role="tabpanel">
                 <div id="dataTableDiv">
                     <div id="loader"><img src="triangle_square_animation.gif"></div>
                     <table id="dataTable" class="table table-hover">
@@ -71,15 +71,18 @@
                     </table>
                 </div>
             </div>
-            <div class="tab-pane active" id="pedigreeTab" role="tabpanel">
+            <div class="tab-pane " id="pedigreeTab" role="tabpanel">
                 <div id="treeSection"></div>
                 <div id="infoSection">
                  
                     <div id="infoBox">
-                      
+                      <h2> Cultivar Info box</h2>
+                     <div id="cultivarInfo" class="container" style="word-wrap: break-word;">
+                         
+                     </div> 
                     </div>
                     <div id="attributeBox">
-                    <h1>fgfggfdgfdbfdbdbfg</h1>
+                    <h2> Attribute selection box</h2>
                      <div id="attributes" class="container">
                      </div>
                     </div>
