@@ -187,7 +187,7 @@
 
 
        function parseAllData() {
-           d3.csv("sampledata2.csv", function(data) {
+           d3.csv("data.csv", function(data) {
 
                loader.stop();
                dataTable = data;

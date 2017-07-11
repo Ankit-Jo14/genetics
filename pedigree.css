@@ -14,10 +14,7 @@
   stroke-width: 2px;
 }
 
-#treeSection {
-   border-style: solid;
-   border-color: #ff0000;
-}
+ 
 
  
 
@@ -44,12 +41,12 @@
 
 .node:hover {
       stroke-width: 6px;
-      stroke: #ff0000e6;
+      ;
 }
 
 g:hover > .node{
 	 stroke-width: 6px;
-	  stroke: #ff0000e6;
+	   
 }
 
 

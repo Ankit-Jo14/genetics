@@ -3,15 +3,19 @@ html, body { height: 100%; padding: 0; margin: 0; }
 #searchbar { background: #DDD; min-height:80px; width:100% }
 #dataTableDiv {  height: 850px ; width:100% ; overflow: scroll;}
 #pedigreeTab {height :850px; width:100%; padding-top: 5px;}
-#treeSection { height:98%; width:75%; display: inline-block; border-radius: 15px}
-#infoSection {  height:98% ; width:20% ; display: inline-block ; vertical-align:top;}
-#infoBox { background: #c6c2c21a;  height:50% ; width:100% ;   border-radius: 15px }
-#attributeBox {  background: #c6c2c21a; height:50% ; width:100% ;  border-radius: 15px}
+#treeSection { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
+ height:98%; width:75%; display: inline-block; border-radius: 15px}
+#infoSection { padding-left: 20px;  height:98% ; width:20% ; display: inline-block ; vertical-align:top;}
+#infoBox { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
+   height:50% ; width:100% ;   border-radius: 15px ;margin-bottom: 10px}
+#attributeBox { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
+  height:49% ; width:100% ;  border-radius: 15px}
 #cultivarInfo {width : 250px; word-wrap: break-word;}
 #attributeBox h2{ border-bottom-style: solid; border-color: #ff00045;border-radius: 15px 15px 0px 0px; text-align: center;
 	margin: 0px 0px 0px 0px; padding: 4px 4px 4px 4px; background-color: #337ab7; color: white }
 #infoBox h2{  border-bottom-style: solid; border-color: #ff00045; border-radius: 15px 15px 0px 0px;text-align: center;
 	margin: 0px 0px 0px 0px; padding: 4px 4px 4px 4px; background-color: #337ab7; color: white }
 
-#attributes {height: 380px ; width:100% ; overflow: scroll; border-radius: 0px 0px 15px 15px}
-#cultivarInfo{ height: 365px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px }
+#attributes {height: 350px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px}
+#cultivarInfo{ height: 350px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px }
+
