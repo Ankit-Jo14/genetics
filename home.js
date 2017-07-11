@@ -2,10 +2,11 @@
        console.log("ready!");
        var dataTable = [];
        var pedigreeNodes = [];
-       var table=[];
+       var table = [];
        var i = 0,
            duration = 750,
-           root, margin, treemap, svg, g;
+           root, margin, treemap, svg, g, identifier = 0,
+           zoom;
        init();
 
        function init() {
@@ -32,7 +33,9 @@
            $country = $state = $("#origin").val().trim();
            $maturityGrp = $("#maturityGrp").val().trim();
 
-           var filteredData = dataTable.filter(row => ($name ? (row['Male'].toLowerCase().includes($name) || row['Female'].toLowerCase().includes($name) || row['Cultivar'].toLowerCase().includes($name) || row['PI number'].toLowerCase().includes($PInumber)) : true) &&
+           var filteredData = dataTable.filter(row => ($name ? (row['Male'].toLowerCase().includes($name) || row['Female'].toLowerCase().includes(
+                       $name) || row['Cultivar'].toLowerCase().includes($name) || row['PI number'].toLowerCase().includes($PInumber)) :
+                   true) &&
                ($country ? (row['Country'] == $country || row['State'] == $state) : true) &&
                ($year ? (row['Year'] == $year) : true) &&
                ($maturityGrp ? (row['MG'] == $maturityGrp) : true));
@@ -40,21 +43,35 @@
 
        });
 
-       $(document).on('click','foreignObject',function(e){
-         console.log($(this).attr('value'));
-         var object= dataTable.find(x=>x.Cultivar == $(this).attr('value'));
-         if(object){
-          console.log(object); 
-         }else{
-          object=getemptyobject(dataTable.columns);
-           console.log(object);
-         }
-         $("#cultivarInfo").html(JSON.stringify(object));
+       $(document).on('click', 'foreignObject', function(e) {
+           var $tableBody = $("#cultivarInfo > table > tbody");
+           console.log($(this).attr('value'));
+           var object = dataTable.find(x => x.Cultivar == $(this).attr('value'));
+           if (object) {
+               console.log(object);
+           } else {
+               object = getemptyobject(dataTable.columns);
+               console.log(object);
+           }
+           // $("#cultivarInfo").html(object.toString());
+           var objectKeys = Object.keys(object);
 
+           var elementstoAppend = [];
+           for (var i = 0; i < objectKeys.length; i++) {
+
+               var columnName = objectKeys[i];
+               var row = "<td>" + columnName + "</td><td>" + object[columnName] + "</td>";
+
+               elementstoAppend[i] = "<tr>" + row + "</tr>";
+
+           }
+
+
+           $tableBody.html(elementstoAppend.join(''));
        })
 
        $(document).on('change', "#attributes input[type='checkbox']", function(e) {
-           var limit = 2;
+           var limit = 3;
 
            if ($("#attributes  input[type='checkbox']:checked").length >= limit) {
                this.checked = false;
@@ -65,26 +82,33 @@
                selected.push($(this).attr('value'));
            });
 
-           console.log("change fired");
+           console.log(selected);
 
            //d3.selectAll("foreignObject ").remove();
            d3.selectAll("foreignObject > div")
-               .html(function(d) { 
-                  if(selected.length <= 0){
-                   return d.data["PI number"] + " | " + d.data["Cultivar"] ;
-                  }    
-                   return (d.data["PI number"] ? d.data["PI number"] : "N.A.") + " | " + d.data["Cultivar"] + "</br>" + selected[0] +" : "+(d.data[selected[0]] ? d.data[selected[0]] : "N.A.");
+               .html(function(d) {
+                   var elementstoAppend = [];
+                   elementstoAppend[0] = d.data["PI number"] + " | " + d.data["Cultivar"];
+                   for (var i = 1; i <= selected.length; i++) {
+
+                       var row = "</br>" + selected[i - 1] + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+
+                       elementstoAppend[i] = "<tr>" + row + "</tr>";
+                   }
+                   return elementstoAppend.join('');
                });
        })
 
 
        $(document).on('click', "#tableBody .showTree", function(e) {
 
+
+           $("#attributes input:checkbox").prop('checked', false);
            $('#navTabs a[href="#pedigreeTab"]').tab('show');
            console.log($(this).attr('value'));
            var rootNode = $(this).attr('value');
            pedigreeNodes = []
-           getParentNodesData(rootNode);
+           getParentNodesData(rootNode, "root");
            console.log(pedigreeNodes);
            var pedigree = structurePedigreeData(pedigreeNodes, rootNode);
            //generateTree(table);
@@ -92,26 +116,38 @@
 
        })
 
+       $(document).on('click', "#resetTree", function(e) {
+           console.log("resettree");
+           d3.select("#treeSection > svg ").transition().duration(1000).call(zoom.transform, d3.zoomIdentity);
 
-       function getParentNodesData(cultivar) {
-           var boole = pedigreeNodes.find(a => a.Cultivar == cultivar)
-           if (boole) {
-               return;
-           }
-           var node = dataTable.find(a => a.Cultivar == cultivar);
+       })
+
+
+       function getParentNodesData(cultivar, gender) {
+           var node = clone(dataTable.find(a => a.Cultivar == cultivar));
            if (!node) {
                node = {};
                node = getemptyobject(dataTable.columns);
                node.Cultivar = cultivar;
+               node["id"] = identifier;
+               node["gender"] = gender;
+               node["visited"] = false;
                pedigreeNodes.push(node);
+               identifier++;
                return;
            }
+           node["id"] = identifier;
+           node["visited"] = false;
+           node["gender"] = gender;
+           identifier++;
            pedigreeNodes.push(node);
-           if (node.Male) {
-               getParentNodesData(node.Male);
-           }
-           if (node.Female) {
-               getParentNodesData(node.Female);
+           if (node.Male != "Unknown" || node.Female != "Unknown") {
+               if (node.Male) {
+                   getParentNodesData(node.Male, "Male");
+               }
+               if (node.Female) {
+                   getParentNodesData(node.Female, "Female");
+               }
            }
        }
 
@@ -119,35 +155,43 @@
            //setting root node has child property as null to make it root
            data.find(a => a.Cultivar == rootNode)['haschild'] = "";
            data.forEach(function(element, index, array) {
-               if (element.Male) {
-                   var node = array.find(a => a.Cultivar == element.Male)['haschild'] = element.Cultivar;
-               }
-               if (element.Female) {
-                   array.find(a => a.Cultivar == element.Female)['haschild'] = element.Cultivar;
+               if (element.Male != "Unknown" || element.Female != "Unknown") {
+                   if (element.Male) {
+                       var node = array.find(a => a.Cultivar == element.Male && a.visited == false);
+                       node['haschild'] = element["id"];
+                       node['visited'] = true;
+                   }
+                   if (element.Female) {
+                       var node = array.find(a => a.Cultivar == element.Female && a.visited == false);
+                       node['haschild'] = element["id"];
+                       node['visited'] = true;
+
+                   }
                }
            });
 
            return data;
        }
-       
-       function getemptyobject(properties){
-           console.log(properties);
-           var object={};
-           properties.forEach(function(element, index, array){
-           object[element] = "";
 
-          });
-          console.log(object.toString());
-          return object;
-        }
+       function getemptyobject(properties) {
+           console.log(properties);
+           var object = {};
+           properties.forEach(function(element, index, array) {
+               object[element] = "";
+
+           });
+           console.log(object.toString());
+           return object;
+       }
 
 
 
        function parseAllData() {
-           d3.csv("data.csv", function(data) {
+           d3.csv("sampledata2.csv", function(data) {
 
                loader.stop();
                dataTable = data;
+
                // setTimeout(function (){loader.stop();} , 10000);
 
                generateTable(data);
@@ -192,7 +236,8 @@
                    rowArray[j] = "<td>" + dataRow[columnName] + "</td>";
                }
 
-               var showTreeButton = "<td><button type='button' class='btn btn-primary showTree' value =" + dataRow[showTreeButtonIdentifier] + ">Show Tree</button></td>";
+               var showTreeButton = "<td><button type='button' class='btn btn-primary showTree' value =" + dataRow[showTreeButtonIdentifier] +
+                   ">Show Tree</button></td>";
                elementstoAppend[i] = "<tr>" + rowArray.join('') + showTreeButton + "</tr>";
 
            }
@@ -230,16 +275,17 @@
 
            // declares a tree layout and assigns the size
            treemap = d3.tree().size([height, width]);
-
+           zoom = d3.zoom();
            // append the svg object to the body of the page
            // appends a 'group' element to 'svg'
            // moves the 'group' element to the top left margin
            svg = d3.select("#treeSection").append("svg")
-               .attr("width", width + margin.right + margin.left)
-               .attr("height", height + margin.top + margin.bottom)
-               .call(d3.zoom()
-                   .scaleExtent([1 / 2, 4])
-                   .on("zoom", zoomed));;
+               .attr("width", "100%")
+               .attr("height", "95%")
+               .call(zoom.scaleExtent([1 / 2, 4])
+
+                   .on("zoom", zoomed));
+
 
            g = svg.append("g")
                .attr("transform", "translate(" +
@@ -247,242 +293,12 @@
        }
 
 
+       function delta() {
+           //console.log("gfdg");
+           //console.log(d3.event.deltaMode +" "+ d3.event.deltaY);
+           return -d3.event.deltaY * (d3.event.deltaMode ? 120 : .1) / 500;
+       }
 
-        table = [{
-               "Cultivar": "Hawkeye",
-               "haschild": "",
-               "State": "Iowa",
-               "MG": "IIIIIIIIIIIIIIIIIII"
-           },
-           {
-               "Cultivar": "Richland",
-               "haschild": "Hawkeye",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "Mukden",
-               "haschild": "Hawkeye",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "Adams",
-               "haschild": "Richland",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "john",
-               "haschild": "Richland",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "jam",
-               "haschild": "john",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "jam1",
-               "haschild": "jam",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "wiz",
-               "haschild": "jam1",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "khalifa",
-               "haschild": "jam1",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "jam2",
-               "haschild": "jam",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "jeremy",
-               "haschild": "jam2",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "nutt",
-               "haschild": "jam2",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "sam",
-               "haschild": "john",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "sam1",
-               "haschild": "sam",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "kapil",
-               "haschild": "sam1",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "joshi",
-               "haschild": "sam1",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "sam2",
-               "haschild": "sam",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "samosa",
-               "haschild": "sam2",
-               "State": "Iowa",
-               "MG": "IIIIIIIIIIIIIIIIIII"
-           },
-           {
-               "Cultivar": "chatni",
-               "haschild": "sam2",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "Harly",
-               "haschild": "Mukden",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "Harly1",
-               "haschild": "Harly",
-               "State": "Iowa",
-               "MG": "II"
-           },
-           {
-               "Cultivar": "Harly2",
-               "haschild": "Harly",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "Monroe",
-               "haschild": "Mukden",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "Monroe1",
-               "haschild": "Monroe",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "Monroe2",
-               "haschild": "Monroe",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "Dunfield",
-               "haschild": "Adams",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "Illini",
-               "haschild": "Adams",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "bill1",
-               "haschild": "Illini",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "johnthan",
-               "haschild": "bill1",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "martin",
-               "haschild": "bill1",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "bill2",
-               "haschild": "Illini",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "kay",
-               "haschild": "bill2",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "eliyana",
-               "haschild": "bill2",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "Lee",
-               "haschild": "Dunfield",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "jackey",
-               "haschild": "Lee",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "chan",
-               "haschild": "Lee",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "bruse",
-               "haschild": "Dunfield",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "bruse1",
-               "haschild": "bruse",
-               "State": "georgia",
-               "MG": "III"
-           },
-           {
-               "Cultivar": "bruse2",
-               "haschild": "bruse",
-               "State": "georgia",
-               "MG": "III"
-           }
-       ]
 
        function zoomed() {
            g.attr("transform", d3.event.transform);
@@ -493,7 +309,7 @@
 
            root = d3.stratify()
                .id(function(d) {
-                   return d.Cultivar;
+                   return d.id;
                })
                .parentId(function(d) {
                    return d.haschild;
@@ -509,6 +325,40 @@
            //root.children.forEach(collapse);
 
            update(root);
+       }
+
+       function clone(obj) {
+           var copy;
+
+           // Handle the 3 simple types, and null or undefined
+           if (null == obj || "object" != typeof obj) return obj;
+
+           // Handle Date
+           if (obj instanceof Date) {
+               copy = new Date();
+               copy.setTime(obj.getTime());
+               return copy;
+           }
+
+           // Handle Array
+           if (obj instanceof Array) {
+               copy = [];
+               for (var i = 0, len = obj.length; i < len; i++) {
+                   copy[i] = clone(obj[i]);
+               }
+               return copy;
+           }
+
+           // Handle Object
+           if (obj instanceof Object) {
+               copy = {};
+               for (var attr in obj) {
+                   if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+               }
+               return copy;
+           }
+
+           throw new Error("Unable to copy obj! Its type isn't supported.");
        }
 
 
@@ -577,7 +427,7 @@
 
            var foreignobj = nodeEnter.append("foreignObject")
                .attr("width", 150)
-               .attr("height", 40)
+               .attr("height", 55)
                .attr("y", 0)
                .attr("x", function(d) {
                    return d.children || d._children ? -162 : 12;
@@ -586,13 +436,13 @@
                    return d.children || d._children ? "end" : "start";
                })
                .attr("value", function(d) {
-                   return d.data["Cultivar"] ;
+                   return d.data["Cultivar"];
                })
                .append("xhtml:div")
                .attr("class", "popupBox")
 
                .html(function(d) {
-                   return (d.data["PI number"] ? d.data["PI number"] : "N.A.") + " | " + d.data.Cultivar ;
+                   return (d.data["PI number"] ? d.data["PI number"] : "N.A.") + " | " + d.data.Cultivar;
                });
 
            // UPDATE
@@ -634,6 +484,7 @@
 
            // Update the links...
            var link = g.selectAll('path.link')
+               // .style("stroke", function(d) { return (d.data.gender == "Female" ? "pink":"blue"); })
                .data(links, function(d) {
                    return d.id;
                });
@@ -641,6 +492,9 @@
            // Enter any new links at the parent's previous position.
            var linkEnter = link.enter().insert('path', "g")
                .attr("class", "link")
+               .style("stroke", function(d) {
+                   return (d.data.gender == "Female" ? "#ec60db" : "blue");
+               })
                .attr('d', function(d) {
                    var o = {
                        x: source.x0,
