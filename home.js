@@ -118,7 +118,7 @@
 
        $(document).on('click', "#resetTree", function(e) {
            console.log("resettree");
-           d3.select("#treeSection > svg ").transition().duration(1000).call(zoom.transform, d3.zoomIdentity);
+           d3.select("#treeSection > svg ").transition().duration(1000).call(zoom.transform, d3.zoomIdentity.translate(170, 0));
 
        })
 
