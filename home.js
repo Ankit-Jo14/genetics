@@ -13,7 +13,6 @@
          function init() {
              parseAllData();
              treeInit();
-
          }
          // listallcultivar();
          class loader {
@@ -35,7 +34,7 @@
              $maturityGrp = $("#maturityGrp").val().trim();
              filteredData = [];
              filteredData = dataTable.filter(row => ($name ? (row['Male'].toLowerCase().includes($name) || row['Female'].toLowerCase().includes(
-                         $name) || row['Cultivar'].toLowerCase().includes($name) || row['PI number'].toLowerCase().includes($PInumber)) :
+                         $name) || row['Cultivar'].toLowerCase().includes($name) || row['Cultivar_ID'].toLowerCase().includes($PInumber)) :
                      true) &&
                  ($country ? (row['Country'] == $country || row['State'] == $state) : true) &&
                  ($year ? (row['Year'] == $year) : true) &&
@@ -54,7 +53,7 @@
                  object = getemptyobject(dataTable.columns);
                  console.log(object);
              }
-             // $("#cultivarInfo").html(object.toString());
+              $("#infoBox > h2").html("Cultivar : " + $(this).attr('value'));
              var objectKeys = Object.keys(object);
 
              var elementstoAppend = [];
@@ -89,11 +88,11 @@
              d3.selectAll("foreignObject > div")
                  .html(function(d) {
                      var elementstoAppend = [];
-                     elementstoAppend[0] = d.data["PI number"] + " | " + d.data["Cultivar"];
+                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data["Cultivar"];
                      for (var i = 1; i <= selected.length; i++) {
 
-                         //var row = "</br>" + selected[i - 1] + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
-                         var row = "</br>" + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+                         var row = "</br>" + selected[i - 1].substring(0,16) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+                        // var row = "</br>" + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
                          elementstoAppend[i] = "<tr>" + row + "</tr>";
                      }
                      return elementstoAppend.join('');
@@ -105,6 +104,7 @@
 
 
              $("#attributes input:checkbox").prop('checked', false);
+             $("#infoBox > h2").html("Cultivar Info");
              $('#navTabs a[href="#pedigreeTab"]').tab('show');
              console.log($(this).attr('value'));
              var rootNode = $(this).attr('value');
@@ -320,7 +320,7 @@
              var columnArray = [];
              for (var i = 0; i < attributeList.length; i++) {
                  var element = attributeList[i];
-                 if (!(element.includes("PI") || element.includes("Cultivar"))) {
+                 if (!(element.includes("ID") || element.includes("Cultivar"))) {
                      columnArray[i] = "<div class='checkbox'><label><input type='checkbox' value=" + element + ">" + element + "</label></div> ";
                  }
              }
@@ -510,7 +510,7 @@
                  .attr("class", "popupBox")
 
                  .html(function(d) {
-                     return (d.data["PI number"] ? d.data["PI number"] : "N.A.") + " | " + d.data.Cultivar;
+                     return (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data.Cultivar;
                  });
 
              // UPDATE
