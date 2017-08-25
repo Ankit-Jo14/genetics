@@ -255,7 +255,7 @@
 
 
          function parseAllData() {
-             d3.csv("data.csv", function(data) {
+             d3.csv("data/data.csv", function(data) {
 
                  loader.stop();
                  dataTable = data;
@@ -283,7 +283,7 @@
              $tableBody.empty();
 
              // adding table headers
-             elementstoAppend[0] = "<tr>";
+             elementstoAppend[0] = "<tr><th></th>";
 
              for (var i = 1; i <= columnsCount; i++) {
                  elementstoAppend[i] = "<th>" + columns[i - 1] + "</th>";
@@ -291,7 +291,7 @@
 
              // adding extra column for show tree button
              var elementstoAppendLastIndex = elementstoAppend.length;
-             elementstoAppend[elementstoAppendLastIndex] = "<th></th></tr>";
+             elementstoAppend[elementstoAppendLastIndex] = "</tr>";
              $tableHeader.html(elementstoAppend.join(''));
 
              // adding data rows
@@ -306,7 +306,7 @@
 
                  var showTreeButton = "<td><button type='button' class='btn btn-primary showTree' value =" + dataRow[showTreeButtonIdentifier] +
                      ">Show Tree</button></td>";
-                 elementstoAppend[i] = "<tr>" + rowArray.join('') + showTreeButton + "</tr>";
+                 elementstoAppend[i] = "<tr>" + showTreeButton + rowArray.join('') + "</tr>";
 
              }
 
@@ -320,7 +320,7 @@
              var columnArray = [];
              for (var i = 0; i < attributeList.length; i++) {
                  var element = attributeList[i];
-                 if (!(element.includes("ID") || element.includes("Cultivar"))) {
+                 if (!(element.endsWith("ID") || element.endsWith("Cultivar"))) {
                      columnArray[i] = "<div class='checkbox'><label><input type='checkbox' value=" + element + ">" + element + "</label></div> ";
                  }
              }
