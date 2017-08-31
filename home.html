@@ -7,9 +7,9 @@
 
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="d3.v4.js"></script>
+    <!-- <script type="text/javascript" src="d3.v4.js"></script> -->
     <script type="text/javascript" src="home.js"></script>
-     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="home.css">
     <link rel="stylesheet" type="text/css" href="pedigree.css">
@@ -21,7 +21,7 @@
     <div id="searchbar">
         <div class="container" style="width: 100% ; min-width: 1558px;">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <label for="cultivar" class="col-form-label">Cultivar</label>
                     <input class="form-control" type="text" id="cultivar" placeholder="PI Number or Name or Male or Female">
                 </div>
@@ -29,7 +29,7 @@
                     <label for="maturitygrp" class="col-form-label">Maturity group</label>
                     <input class="form-control" type="text" id="maturityGrp" placeholder="Maturity Group">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <label for="year" class="col-form-label">Year</label>
                     <input class="form-control" type="text" id="year" placeholder="year">
                 </div>
@@ -44,6 +44,9 @@
                 </div>
                 <div class="col-md-2" style="padding-top: 26px">
                     <button type="button" style="width: 100%;" class="btn btn-info" id="exportData">Export Filtered Data</button>
+                </div>
+                <div class="col-md-2" style="padding-top: 26px">
+                    <button type="button" style="width: 100%;" class="btn btn-info" id="uploadData">Upload Data</button>
                 </div>
             </div>
         </div>

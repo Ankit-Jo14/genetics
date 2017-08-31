@@ -154,6 +154,16 @@
          })
 
 
+         $(document).on('click', "#uploadData", function(e) {
+              var uploadLink = document.createElement("input");
+              uploadLink.type = 'file';
+              document.body.appendChild(uploadLink);
+              uploadLink.click();
+              document.body.removeChild(uploadLink);
+
+         })
+
+
          // JSON to CSV Converter
          function ConvertToCSV(objArray) {
              var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
@@ -351,7 +361,7 @@
                  .attr("width", "100%")
                  .attr("height", "95%")
                  .call(zoom.scaleExtent([1 / 2, 4])
-
+                         .wheelDelta(delta)
                      .on("zoom", zoomed));
 
 
@@ -364,7 +374,9 @@
          function delta() {
              //console.log("gfdg");
              //console.log(d3.event.deltaMode +" "+ d3.event.deltaY);
-             return -d3.event.deltaY * (d3.event.deltaMode ? 120 : .1) / 500;
+            
+           return -d3.event.deltaY * (d3.event.deltaMode ? 120 : 1) / 15000;
+ 
          }
 
 
