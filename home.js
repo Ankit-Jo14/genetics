@@ -153,15 +153,65 @@
              }
          })
 
-
+         var uploadLink= document.createElement("input");
          $(document).on('click', "#uploadData", function(e) {
-              var uploadLink = document.createElement("input");
+               
               uploadLink.type = 'file';
+              uploadLink.accept = '';
               document.body.appendChild(uploadLink);
               uploadLink.click();
-              document.body.removeChild(uploadLink);
-
+              console.log("comes here");
+             // document.body.removeChild(uploadLink);
+            
          })
+
+
+         uploadLink.addEventListener('change', function(e) {
+             // alert("change fired");
+              var selectedfile=  uploadLink.files[0];
+            handleFiles(uploadLink.files);
+
+         });
+
+
+          function handleFiles(files) {
+      // Check for the various File API support.
+      if (window.FileReader) {
+          // FileReader are supported.
+          getAsText(files[0]);
+      } else {
+          alert('FileReader are not supported in this browser.');
+      }
+    }
+
+         function getAsText(fileToRead) {
+      var reader = new FileReader();
+      // Read file into memory as UTF-8      
+      
+      // Handle errors load
+      reader.onload = loadHandler;
+      reader.readAsText(fileToRead);
+     // reader.onerror = errorHandler;
+    }
+
+    function loadHandler(event) {
+      var csv = event.target.result;
+      processData(csv);
+    }
+
+    function processData(csv) {
+        var allTextLines = csv.split(/\r\n|\n/);
+        var lines = [];
+        for (var i=1; i<allTextLines.length; i++) {
+            var data = allTextLines[i].split(',');
+                var tarr = [];
+                for (var j=0; j<data.length; j++) {
+                    tarr.push(data[j]);
+                }
+                lines.push(tarr);
+        }
+      console.log(lines);
+    }
 
 
          // JSON to CSV Converter
