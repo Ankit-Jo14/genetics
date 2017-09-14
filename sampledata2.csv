@@ -1,4 +1,4 @@
-Order,PI number,Cultivar,Female,Male,Subcollection,State,Country,Year
+Order,Cultivar_ID,Cultivar,Female,Male,Subcollection,State,Country,Year
 1,PI548577,Hawkeye,Mukden,Richland,Modern,Iowa,United States,1947
 2,PI548502,Mukden,Harly,Adams,Modern,Ontario,Canada,1948
 3,PI548572,Richland,Unknown,Adams,Modern,Ohio,United States,1949

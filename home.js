@@ -202,15 +202,26 @@
     function processData(csv) {
         var allTextLines = csv.split(/\r\n|\n/);
         var lines = [];
-        for (var i=1; i<allTextLines.length; i++) {
+        lines.columns = allTextLines[0].split(','); 
+        for (var i=1; i<allTextLines.length-1; i++) {
             var data = allTextLines[i].split(',');
-                var tarr = [];
+                var tarr = {};
                 for (var j=0; j<data.length; j++) {
-                    tarr.push(data[j]);
+                      var obj={};
+                      tarr[lines.columns[j]] = data[j];  
+                   // tarr.push(obj);
                 }
-                lines.push(tarr);
+
+                 if(i==0){
+                    // lines.columns = tarr;  
+                    }else{
+                        lines.push(tarr);
+                    }
+                
         }
-      console.log(lines);
+      
+      parseAllData(lines);
+
     }
 
 
@@ -314,8 +325,9 @@
 
 
 
-         function parseAllData() {
-             d3.csv("data/data.csv", function(data) {
+         function parseAllData(data) {
+            if(!data){ 
+                d3.csv("data/data.csv", function(data) {
 
                  loader.stop();
                  dataTable = data;
@@ -326,7 +338,12 @@
                  generateAttributeBoxData(dataTable);
 
              });
+         }else{
+                 dataTable = data;
+                 generateTable(data);
+                 generateAttributeBoxData(dataTable);
          }
+     }
 
 
          function generateTable(data) {
