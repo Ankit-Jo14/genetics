@@ -1,11 +1,11 @@
-Order,Cultivar_ID,Cultivar,Female,Male,Subcollection,State,Country,Year
-1,PI548577,Hawkeye,Mukden,Richland,Modern,Iowa,United States,1947
-2,PI548502,Mukden,Harly,Adams,Modern,Ontario,Canada,1948
-3,PI548572,Richland,Unknown,Adams,Modern,Ohio,United States,1949
-4,PI548599,Adams,Illini,Dunfield,Modern,Iowa,United States,1950
-5,PI548578,Harly,Unknown,Adams,Modern,Ontario,Canada,1951
-6,PI548504,Monroe,Illini,,Modern,Ohio,United States,1952
-7,PI548574,Illini,,,Modern,Ontario,Canada,1953
-8,PI548597,Dunfield,,,Modern,Ohio,United States,1954
-9,PI5485892,ankit,Unknown,Unknown,Modern,Ohio,United States,1952
-10,PI54859765,miles,,,Modern,Ontario,Canada,1953
+Cultivar_ID,Cultivar_Name,Cultivar_Alias,Female_ID,Female_Name,Male_ID,Male_Name,Subcollection,State,Country,Year
+PI5485775,Hawkeye,,PI5485026,Mukden,PI5485726,Richland,Modern,Iowa,United States,1947
+PI5485026,Mukden,,PI5485786,Harly,PI5485996,Adams,Modern,Ontario,Canada,1948
+PI5485726,Richland,,UN000000,Unknown,PI5485996,Adams,Modern,Ohio,United States,1949
+PI5485996,Adams,,PI5485746,Illini,PI5485975,Dunfield,Modern,Iowa,United States,1950
+PI5485786,Harly,,UN000000,Unknown,PI5485996,Adams,Modern,Ontario,Canada,1951
+PI5485046,Monroe,,PI5485746,Illini,PI5485976,miles,Modern,Ohio,United States,1952
+PI5485746,Illini,,,,,,Modern,Ontario,Canada,1953
+PI5485975,Dunfield,,,,,,Modern,Ohio,United States,1954
+PI5485892,ankit,,UN000000,Unknown,UN000000,Unknown,Modern,Ohio,United States,1952
+PI5485976,miles,,PI5485888,John,,,Modern,Ontario,Canada,1953

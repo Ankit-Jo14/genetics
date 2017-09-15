@@ -4,6 +4,7 @@
          var pedigreeNodes = [];
          var table = [];
          var filteredData = [];
+         var selected = [];
          var i = 0,
              duration = 750,
              root, margin, treemap, svg, g, identifier = 0,
@@ -33,8 +34,8 @@
              $country = $state = $("#origin").val().trim();
              $maturityGrp = $("#maturityGrp").val().trim();
              filteredData = [];
-             filteredData = dataTable.filter(row => ($name ? (row['Male'].toLowerCase().includes($name) || row['Female'].toLowerCase().includes(
-                         $name) || row['Cultivar'].toLowerCase().includes($name) || row['Cultivar_ID'].toLowerCase().includes($PInumber)) :
+             filteredData = dataTable.filter(row => ($name ? (row['Male_Name'].toLowerCase().includes($name) || row['Male_ID'].toLowerCase().includes($PInumber) || row['Female_ID'].toLowerCase().includes($PInumber) || row['Female_Name'].toLowerCase().includes(
+                         $name) || row['Cultivar_Name'].toLowerCase().includes($name) || row['Cultivar_ID'].toLowerCase().includes($PInumber)) :
                      true) &&
                  ($country ? (row['Country'] == $country || row['State'] == $state) : true) &&
                  ($year ? (row['Year'] == $year) : true) &&
@@ -46,14 +47,14 @@
          $(document).on('click', 'foreignObject', function(e) {
              var $tableBody = $("#cultivarInfo > table > tbody");
              console.log($(this).attr('value'));
-             var object = dataTable.find(x => x.Cultivar == $(this).attr('value'));
+             var object = dataTable.find(x => x.Cultivar_ID == $(this).attr('value'));
              if (object) {
                  console.log(object);
              } else {
                  object = getemptyobject(dataTable.columns);
                  console.log(object);
              }
-              $("#infoBox > h2").html("Cultivar : " + $(this).attr('value'));
+              $("#infoBox > h2").html("Cultivar : " + object.Cultivar_Name);
              var objectKeys = Object.keys(object);
 
              var elementstoAppend = [];
@@ -76,8 +77,8 @@
              if ($("#attributes  input[type='checkbox']:checked").length >= limit) {
                  this.checked = false;
              }
-
-             var selected = [];
+              selected=[];
+              
              $("#attributes  input[type='checkbox']:checked").each(function() {
                  selected.push($(this).attr('value'));
              });
@@ -88,7 +89,7 @@
              d3.selectAll("foreignObject > div")
                  .html(function(d) {
                      var elementstoAppend = [];
-                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data["Cultivar"];
+                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data["Cultivar_Name"];
                      for (var i = 1; i <= selected.length; i++) {
 
                          var row = "</br>" + selected[i - 1].substring(0,16) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
@@ -106,9 +107,10 @@
              $("#attributes input:checkbox").prop('checked', false);
              $("#infoBox > h2").html("Cultivar Info");
              $('#navTabs a[href="#pedigreeTab"]').tab('show');
-             console.log($(this).attr('value'));
+             console.log("rrot name"+$(this).attr('value'));
              var rootNode = $(this).attr('value');
              pedigreeNodes = []
+             selected=[];
              getParentNodesData(rootNode, "root");
              console.log(pedigreeNodes);
              var pedigree = structurePedigreeData(pedigreeNodes, rootNode);
@@ -262,12 +264,17 @@
              return escape(str);
          }
 
-         function getParentNodesData(cultivar, gender) {
-             var node = clone(dataTable.find(a => a.Cultivar == cultivar));
+         function getParentNodesData(cultivar_id,cultivar_name, gender) {
+             var node = undefined;
+             if(cultivar_id != "UN000000"){
+             node = clone(dataTable.find(a => a.Cultivar_ID == cultivar_id));   
+             }
+             
              if (!node) {
                  node = {};
                  node = getemptyobject(dataTable.columns);
-                 node.Cultivar = cultivar;
+                 node["Cultivar_Name"] = cultivar_name;
+                 node["Cultivar_ID"] = cultivar_id;
                  node["id"] = identifier;
                  node["gender"] = gender;
                  node["visited"] = false;
@@ -280,28 +287,28 @@
              node["gender"] = gender;
              identifier++;
              pedigreeNodes.push(node);
-             if (node.Male != "Unknown" || node.Female != "Unknown") {
-                 if (node.Male) {
-                     getParentNodesData(node.Male, "Male");
+             if (node.Male_Name != "Unknown" || node.Female_Name != "Unknown") {
+                 if (node.Male_ID) {
+                     getParentNodesData(node.Male_ID,node.Male_Name, "Male");
                  }
-                 if (node.Female) {
-                     getParentNodesData(node.Female, "Female");
+                 if (node.Female_ID) {
+                     getParentNodesData(node.Female_ID,node.Female_Name, "Female");
                  }
              }
          }
 
          function structurePedigreeData(data, rootNode) {
              //setting root node has child property as null to make it root
-             data.find(a => a.Cultivar == rootNode)['haschild'] = "";
+             data.find(a => a.Cultivar_ID == rootNode)['haschild'] = "";
              data.forEach(function(element, index, array) {
-                 if (element.Male != "Unknown" || element.Female != "Unknown") {
-                     if (element.Male) {
-                         var node = array.find(a => a.Cultivar == element.Male && a.visited == false);
+                 if (element.Male_Name != "Unknown" || element.Female_Name != "Unknown") {
+                     if (element.Male_ID) {
+                         var node = array.find(a => a.Cultivar_ID == element.Male_ID && a.visited == false);
                          node['haschild'] = element["id"];
                          node['visited'] = true;
                      }
-                     if (element.Female) {
-                         var node = array.find(a => a.Cultivar == element.Female && a.visited == false);
+                     if (element.Female_ID) {
+                         var node = array.find(a => a.Cultivar_ID == element.Female_ID && a.visited == false);
                          node['haschild'] = element["id"];
                          node['visited'] = true;
 
@@ -353,7 +360,7 @@
              var dataCount = data.length;
              var columnsCount = columns.length;
              var elementstoAppend = [];
-             var showTreeButtonIdentifier = "Cultivar";
+             var showTreeButtonIdentifier = "Cultivar_ID";
 
              // clear previously displayed table data
              $tableHeader.empty();
@@ -583,13 +590,21 @@
                      return d.children || d._children ? "end" : "start";
                  })
                  .attr("value", function(d) {
-                     return d.data["Cultivar"];
+                     return d.data["Cultivar_ID"];
                  })
                  .append("xhtml:div")
                  .attr("class", "popupBox")
 
                  .html(function(d) {
-                     return (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data.Cultivar;
+                      var elementstoAppend = [];
+                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data["Cultivar_Name"];
+                     for (var i = 1; i <= selected.length; i++) {
+
+                         var row = "</br>" + selected[i - 1].substring(0,16) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+                        // var row = "</br>" + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+                         elementstoAppend[i] = "<tr>" + row + "</tr>";
+                     }
+                     return elementstoAppend.join('');
                  });
 
              // UPDATE
