@@ -5,28 +5,83 @@
     <meta charset="utf-8">
   
 
-    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 
 
 </head>
 
 <body background="bg.jpg">
-<div style="height: 20%; width:600px ;background:blue">
- <img src="title.jpg" style="position:relative; left:75%; top:3%;width:304px;height:228px;">
+<div style="background: white;height:2200px; width:70%; left:15% ;top:5%; position: absolute;-moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;">
+<div style="height: 20%; background:white">
+ <img src="title.jpg" style="margin: auto;display: block;padding-top: 10px;;width:700px;height:150px;">
 </div>
 
-<div style="background: white;height:1200px; width:70%; left:30%;top:5%"> <button>activate Maxpedigree</button>
-<div style="height: 20%; width:70% ;background:blue">
-    <img src="first_screen.jpg" style="position:relative; left:75%; top:3%;width:304px;height:228px;">
+
+ 
+<div style="height: 30% ; -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;">
+<span style="float:left;width: 69%;padding:10px 0px 10px 10px;word-wrap: break-word;">
+<h3>INTRODUCTION</h3>
+    <p>The narrow genetic base among U.S. soybean cultivars is a limitation to the current rate of yield improvement. Empowering soybean breeders with the ability to easily access the pedigrees and traits of existing and historical cultivars/breeding lines for both parental and progeny selection will help improve the rate of genetic gain by increasing genetic diversity in breeding populations. Additionally, plant breeding programs often have great difficulty in properly managing pedigree information due to pedigree complexity and the feasibility of maintaining a centralized resource where this information is easily inputted and effectively visualized. To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree© was developed using JavaScript programming language and MySQL, an open-source relational database system, which can store the data on a local computer or network server. The maxPedigree© interface is connected to the MySQL database and is able to pull the pedigree and trait information for visualization and application by plant breeders. </br>The current version of maxPedigree©  features: <ol> <li>an interactive search-based cultivar-pedigree database, that will allow breeders to look up and visualize pedigree tree information; </li><li> phenotypic data for descriptors and agronomic traits established by the USDA for the soybean germplasm collection; </li><li> exportation of customizable data tables with desired lines and trait data.</li></ol></br> Future features will include: <ol> <li> colored trait tracing through pedigree trees</li><li> storing of genotypic data for haplotype calling and population structure/diversity analyses; </li><li> integration of established tools for genome-wide association study (GWAS) and genomic selection (GS) applications. Each breeding program can have their own personal database for storing cultivar and breeding line information with maxPedigree©. For the first time, soybean breeders will have access to this trove of information in one convenient, user-friendly platform. The program for this assistive plant breeding tool, once established, could also be applied to other crops such as maize, cotton, peanut, and wheat.</li></ol>
+</p>
+    <div class="container" style="width: 100% ; min-width: 1558px;">
+            <div class="row">
+                 
+                <div class="col-md-2" style="padding-top: 26px">
+                    <button type="button" style="width: 100%;" class="btn btn-info" id="exportData">Activate Pedigree</button>
+                </div>
+                <div class="col-md-2" style="padding-top: 26px">
+                    <button type="button" style="width: 100%;" class="btn btn-info" id="uploadData">Read me</button>
+                </div>
+            </div>
+        </div>
+</span>
+ 
 </div>
-<div style="height: 25% ;width:70% ;background:red">
-    <img src="bg.jpg" style="position:relative; left:75%; top:10%; ">
+<h3>FEATURES :</h3>
+<div style="height: 10% ;">
+  <span style="float:left;width: 69%;padding:10px 0px 10px 10px;word-wrap: break-word;">
+<h3>Horizontal Search bar</h3>
+    <p>A Horizontal Search Bar along the top of the screen allows users the ability to search and locate specific cultivars or breeding lines of interest. Users can search using multiple criteria as well as partial inputs. The search bar contains a search button, reset button, and an export filtered data button which is used for the exporting the cultivar information sheet The search bar will feature four unique searchable functions for breeders to identify specific genotypes:
+<ol><li>PI number or genotype name</li>
+<li>Maturity group</li>
+<li>Year of Release</li>
+<li>Origin (State or Country)</li>
+</ol>
+</p>
+</span>
+<span style="float:right;width: 30%;">
+    <img src="first_screen.jpg" style="padding:10px 10px 10px 10px;width:304px;height:228px;">
+</span>
 </div>
-<div style="height: 25% ; width:70% ;background:grey">
-    <img src="bg.jpg" style="position:relative; left:75%; top:10%;">
+<div style="height: 10%  ;">
+   <span style="float:left;width: 69%;padding:10px 0px 10px 10px;word-wrap: break-word;">
+<h3>Pedigree tree</h3>
+    <p>The Pedigree Tree starts at a chosen line and creates a tree from left to right with all available pedigree data. Male parents are indicated by blue lines and female parents are indicated by pink lines. Each node is collapsible simply by clicking on the node. Clicked nodes will appear as filled in blue circles. The tree can be panned vertically or horizontally using scroll bars. Zooming in and out is also an option. Each line in the Pedigree Tree appears in a red box with both the PI number and name. Two attributes can also be displayed within the box for each line. 
+</p>
+</span>
+<span style="float:right;width: 30%;">
+    <img src="first_screen.jpg" style="padding:10px 10px 10px 10px;width:304px;height:228px;">
+</span>
 </div>
-<div style="height: 25% ; width:70% ;background:pink">
-    <img src="bg.jpg" style="position:relative; left:75%; top:10%;">
+<div style="height: 10%  ;">
+   <span style="float:left;width: 69%;padding:10px 0px 10px 10px;word-wrap: break-word;">
+<h3>Cultivar Information</h3>
+    <p>Users are able to click on any line within the Pedigree Tree and a Cultivar Information box will pull up in the top right corner populated with specific details and phenotypic data relevant to the selected line.
+</p>
+</span>
+<span style="float:right;width: 30%;">
+    <img src="first_screen.jpg" style="padding:10px 10px 10px 10px;width:304px;height:228px;">
+</span>
+</div>
+<div style="height: 10%  ;">
+   <span style="float:left;width: 69%;padding:10px 0px 10px 10px;word-wrap: break-word;">
+<h3>Attribute Selection</h3>
+    <p>The bottom right corner contains an Attributes Selection box in which any two attributes can be selected and these will be populated for each line within the Pedigree Tree.
+</p>
+</span>
+<span style="float:right;width: 30%;">
+    <img src="first_screen.jpg" style="padding:10px 10px 10px 10px;width:304px;height:228px;">
+</span>
 </div>
 </div>
     
