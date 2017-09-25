@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="home.css">
     <link rel="stylesheet" type="text/css" href="pedigree.css">
-
+  
 
 </head>
 
@@ -21,6 +21,11 @@
     <div id="searchbar">
         <div class="container" style="width: 100% ; min-width: 1558px;">
             <div class="row">
+            <div class="col-md-1">
+            <a href="Welcome.html" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-home"></span> Home
+        </a>
+        </div>
                 <div class="col-md-2">
                     <label for="cultivar" class="col-form-label">Cultivar</label>
                     <input class="form-control" type="text" id="cultivar" placeholder="PI Number or Name or Male or Female">
@@ -33,7 +38,7 @@
                     <label for="year" class="col-form-label">Year</label>
                     <input class="form-control" type="text" id="year" placeholder="year">
                 </div>
-                <div class="col-md-2"> <label for="origin" class="col-form-label">Origin</label>
+                <div class="col-md-1"> <label for="origin" class="col-form-label">Origin</label>
                     <input class="form-control" type="text" id="origin" placeholder="state or country">
                 </div>
                 <div class="col-md-1" style="padding-top: 26px">
@@ -55,7 +60,7 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist" id="navTabs">
             <li class="nav-item active ">
-                <a class="nav-link active " data-toggle="tab" href="#home" role="tab">Home</a>
+                <a class="nav-link active " data-toggle="tab" href="#home" role="tab">Data & Selection</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link " data-toggle="tab" href="#pedigreeTab" role="tab">Pedigree</a>

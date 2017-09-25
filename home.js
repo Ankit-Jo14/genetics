@@ -100,6 +100,12 @@
                  });
          })
 
+         $("#cultivar,#maturityGrp,#year,#origin").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#search").click();
+    }
+});
+
 
          $(document).on('click', "#tableBody .showTree", function(e) {
 
