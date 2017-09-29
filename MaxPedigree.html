@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="home.css">
+      <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+       <script >
+       $(document).ready(function(){
+          $("#intro").on("click",function(){
+$(".welcomePageInfoBox > *").css('display','none');
+$("#introduction").show();
+});
+
+$("#contact").on("click",function(){
+$(".welcomePageInfoBox > *").css('display','none');
+$("#contactus").show();
+});
+$("#read").on("click",function(){
+$(".welcomePageInfoBox > *").css('display','none');
+$("#readme").show();
+});
+});
+       </script>
+   </head>
+   <body background="background.jpg" style="background-repeat:repeat;" >
+      <div style="background: white;height:900px; width:70%; left:15% ;top:5%; position: absolute;-moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;">
+      <div style="height: 20%; background:white">
+      <img src="title.jpg" style="margin: auto;display: block;padding-top: 10px;;width:700px;height:150px;">
+      </div>
+         <div id="siteMap">
+            <div class="container" style="width: 100% ;">
+                  <div class="row">
+                     <div class="col-md-12" style="padding-top: 20px">
+                        <button type="button" style="width: 100%;" class="btn btn-info" id="intro">Introduction</button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12" style="padding-top: 20px">
+                        <button type="button" style="width: 100%;" class="btn btn-info" id="read">Read me</button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12" style="padding-top: 20px">
+                        <button type="button" style="width: 100%;" class="btn btn-info" id="contact">Contact Us</button>
+                     </div>
+                  </div>
+                  
+            </div>
+         </div><div class="welcomePageInfoBox">
+            <div id="introduction">
+               <span style="float:left;width: 100%;padding:10px 0px 10px 10px;word-wrap: break-word;">
+               <h3>INTRODUCTION</h3>
+               <p>The narrow genetic base among U.S. soybean cultivars is a limitation to the current rate of yield improvement. Empowering soybean breeders with the ability to easily access the pedigrees and traits of existing and historical cultivars/breeding lines for both parental and progeny selection will help improve the rate of genetic gain by increasing genetic diversity in breeding populations. Additionally, plant breeding programs often have great difficulty in properly managing pedigree information due to pedigree complexity and the feasibility of maintaining a centralized resource where this information is easily inputted and effectively visualized. To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree© was developed using JavaScript programming language and MySQL, an open-source relational database system, which can store the data on a local computer or network server. The maxPedigree© interface is connected to the MySQL database and is able to pull the pedigree and trait information for visualization and application by plant breeders. </br>The current version of maxPedigree©  features: 
+               <ol>
+                  <li>an interactive search-based cultivar-pedigree database, that will allow breeders to look up and visualize pedigree tree information; </li>
+                  <li> phenotypic data for descriptors and agronomic traits established by the USDA for the soybean germplasm collection; </li>
+                  <li> exportation of customizable data tables with desired lines and trait data.</li>
+               </ol>
+               </br> Future features will include: 
+               <ol>
+                  <li> colored trait tracing through pedigree trees</li>
+                  <li> storing of genotypic data for haplotype calling and population structure/diversity analyses; </li>
+                  <li> integration of established tools for genome-wide association study (GWAS) and genomic selection (GS) applications. Each breeding program can have their own personal database for storing cultivar and breeding line information with maxPedigree©. For the first time, soybean breeders will have access to this trove of information in one convenient, user-friendly platform. The program for this assistive plant breeding tool, once established, could also be applied to other crops such as maize, cotton, peanut, and wheat.</li>
+               </ol>
+               </p>
+               <div class="container" style="width: 100% ; min-width: 1558px;">
+                  <div class="row">
+                     <div class="col-md-2" style="padding-top: 26px">
+                        <button type="button" style="width: 100%;" onclick="location.href='home.html';"class="btn btn-success" id="exportData">Activate Pedigree</button>
+                     </div>
+                     <div class="col-md-2" style="padding-top: 26px">
+                        <button type="button" style="width: 100%;" class="btn btn-info" id="uploadData">Read me</button>
+                     </div>
+                  </div>
+               </div>
+            </span>
+            </div>
+            <div id="contactus" style="display: none;">
+            <span style="float:left;width: 69%;padding:0px 0px 10px 10px;word-wrap: break-word;">
+               <h3>Contact Info :</h3>
+               <p>
+               Zenglu Li</br>
+Center for Applied Genetic Technologies </br>
+111 Riverbend Rd.,Athens, GA 30602</br>
+Phone: 706-542-9805</br>
+Email: zli@uga.edu</br>
+<a href="http://soybeans.uga.edu/">UGA Soybean Breeding and Molecular Genetics Laboratory </a> 
+               </p>
+               <h3>Contributors:</h3>Benjamin B. Stewart-Brown<sup>1</sup>, Jeffrey D. Boehm Jr.<sup>1</sup>, Ankit Joshi<sup>2</sup>, Krzysztof J. Kochut<sup>2</sup>, and Zenglu Li<sup>1</sup></br>
+               <sup>1</sup> Institute of Plant Breeding, Genetics, and Genomics, UGA, Athens, GA; 
+               <sup>2</sup> Department of Computer Sciences, UGA, Athens, GA</br>
+            </span></div>
+            <div id="readme" style="display: none;">readme</div>
+         </div>
+   
+      </div>
+   </body>
+</html>

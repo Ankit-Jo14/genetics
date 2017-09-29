@@ -19,3 +19,9 @@ html, body { height: 100%; padding: 0; margin: 0; }
 #attributes {height: 350px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px}
 #cultivarInfo{ height: 350px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px }
 
+#siteMap { margin-right: 10px;  height:80% ; width:20% ; display: inline-block ; vertical-align:top;
+ -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;}
+
+ .welcomePageInfoBox { padding-left: 20px;  height:80% ; width:79% ; display: inline-block ; vertical-align:top;
+ -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;}
+
