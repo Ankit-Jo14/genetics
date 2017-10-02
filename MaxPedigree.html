@@ -2,9 +2,14 @@
 <html lang="en">
    <head>
       <meta charset="utf-8">
-      <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="home.css">
       <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="d3.v4.js"></script> -->
+    <script type="text/javascript" src="home.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="pedigree.css">
        <script >
        $(document).ready(function(){
           $("#intro").on("click",function(){
@@ -26,23 +31,35 @@ $("#readme").show();
    <body background="background.jpg" style="background-repeat:repeat;" >
       <div style="background: white;height:900px; width:70%; left:15% ;top:5%; position: absolute;-moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;">
       <div style="height: 20%; background:white">
-      <img src="title.jpg" style="margin: auto;display: block;padding-top: 10px;;width:700px;height:150px;">
+      <img src="titlenew2.jpg" style="margin: auto;display: block;margin: 10px 10px 10px 10px;width:500px;height:150px;float: left;">
+      <img src="ugalogo.jpg" style="margin: auto;display: block;margin: 10px 10px 10px 10px;width:500px;height:150px;float: right;">
       </div>
          <div id="siteMap">
             <div class="container" style="width: 100% ;">
                   <div class="row">
                      <div class="col-md-12" style="padding-top: 20px">
-                        <button type="button" style="width: 100%;" class="btn btn-info" id="intro">Introduction</button>
+                        <button type="button" style="width: 100%; font-size: 25px" class="btn btn-info" id="intro">Introduction</button>
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-12" style="padding-top: 20px">
-                        <button type="button" style="width: 100%;" class="btn btn-info" id="read">Read me</button>
+                        <button type="button" style="width: 100%;font-size: 25px" onclick="location.href='home.html';"class="btn btn-success">Activate Pedigree</button>
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-12" style="padding-top: 20px">
-                        <button type="button" style="width: 100%;" class="btn btn-info" id="contact">Contact Us</button>
+                        <button type="button" style="width: 100%; font-size: 25px" class="btn btn-info" id="read">Read me</button>
+                     </div>
+                  </div>
+                  
+                   <div class="row">
+                     <div class="col-md-12" style="padding-top: 20px">
+                        <button type="button" style="width: 100%; font-size: 25px" class="btn btn-success" id="downloadTemplate">Download Template</button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12" style="padding-top: 20px">
+                        <button type="button" style="width: 100%; font-size: 25px" class="btn btn-info" id="contact">Contact Us</button>
                      </div>
                   </div>
                   
@@ -67,7 +84,7 @@ $("#readme").show();
                <div class="container" style="width: 100% ; min-width: 1558px;">
                   <div class="row">
                      <div class="col-md-2" style="padding-top: 26px">
-                        <button type="button" style="width: 100%;" onclick="location.href='home.html';"class="btn btn-success" id="exportData">Activate Pedigree</button>
+                        <button type="button" style="width: 100%;" onclick="location.href='home.html';"class="btn btn-success">Activate Pedigree</button>
                      </div>
                      <div class="col-md-2" style="padding-top: 26px">
                         <button type="button" style="width: 100%;" class="btn btn-info" id="uploadData">Read me</button>
