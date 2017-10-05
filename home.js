@@ -76,18 +76,30 @@
          $(document).on('change', "#attributes input[type='checkbox']", function(e) {
              var limit = 3;
 
-             
-              selected=[];
-              
-            $("#attributes  input[type='checkbox']:checked").each(function() {
+             if($(this).prop("checked")){
                 selected.push($(this).attr('value'));
-            });
+                if (selected.length >= limit) {
+                    var removed = selected.shift();
+                    $("#attributes  input[type='checkbox'][value="+removed+"]").prop('checked',false);
 
-            if ($("#attributes  input[type='checkbox']:checked").length >= limit) {
+                }
                 
-               $("#attributes  input[type='checkbox'][value="+selected[1]+"]").prop('checked',false); 
-               selected.splice(0,1);
+             }else{
+                var index = selected.indexOf($(this).attr('value'));
+                var removed = selected.splice(index,1);
+                 $("#attributes  input[type='checkbox'][value="+removed[0]+"]").prop('checked',false);
              }
+            
+              
+            // $("#attributes  input[type='checkbox']:checked").each(function() {
+            //     selected.push($(this).attr('value'));
+            // });
+
+            // if ($("#attributes  input[type='checkbox']:checked").length >= limit) {
+                
+            //    $("#attributes  input[type='checkbox'][value="+selected[1]+"]").prop('checked',false); 
+            //    selected.splice(0,1);
+            //  }
 
              console.log(selected);
 
@@ -185,16 +197,14 @@
          })
 
          var uploadLink= document.createElement("input");
+         uploadLink.style.display = "none";
          $(document).on('click', "#uploadData", function(e) {
                
               uploadLink.type = 'file';
-              uploadLink.accept = '';
+              uploadLink.accept = '.csv';
               document.body.appendChild(uploadLink);
               uploadLink.click();
-              console.log("comes here");
-             // document.body.removeChild(uploadLink);
-            
-         })
+            })
 
 
          uploadLink.addEventListener('change', function(e) {
@@ -475,11 +485,7 @@
 
 
          function delta() {
-             //console.log("gfdg");
-             //console.log(d3.event.deltaMode +" "+ d3.event.deltaY);
-            
            return -d3.event.deltaY * (d3.event.deltaMode ? 120 : 1) / 4000;
- 
          }
 
 
