@@ -2,14 +2,14 @@
 <html lang="en">
    <head>
       <meta charset="utf-8">
-      <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <!-- <script type="text/javascript" src="d3.v4.js"></script> -->
-    <script type="text/javascript" src="home.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="home.css">
-    <link rel="stylesheet" type="text/css" href="pedigree.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/pedigree.css">
        <script >
        $(document).ready(function(){
           $("#intro").on("click",function(){
@@ -28,11 +28,11 @@ $("#readme").show();
 });
        </script>
    </head>
-   <body background="background.jpg" style="background-repeat:repeat;" >
+   <body background="img/background.jpg" style="background-repeat:repeat;" >
       <div style="background: white;height:900px; min-width:1340px ;width:70%; left:15% ;top:5%; position: absolute;">
       <div style="height: 20%; background:white">
-      <img src="titlenew2.jpg" style="margin: auto;display: block;margin: 10px 10px 10px 10px;width:500px;height:150px;float: left;">
-      <img src="ugalogo.jpg" style="margin: auto;display: block;margin: 10px 10px 10px 10px;width:500px;height:150px;float: right;">
+      <img src="img/title.jpg" style="margin: auto;display: block;margin: 10px 10px 10px 10px;width:500px;height:150px;float: left;">
+      <img src="img/ugalogo.jpg" style="margin: auto;display: block;margin: 10px 10px 10px 10px;width:500px;height:150px;float: right;">
       </div>
          <div id="siteMap">
             <div class="container" style="width: 100% ;">
@@ -43,7 +43,7 @@ $("#readme").show();
                   </div>
                   <div class="row">
                      <div class="col-md-12" style="padding-top: 20px">
-                        <button type="button" style="width: 100%;font-size: 25px" onclick="location.href='home.html';"class="btn btn-success">Activate Pedigree</button>
+                        <button type="button" style="width: 100%;font-size: 25px" onclick="location.href='pages/home.html';"class="btn btn-success">Activate Pedigree</button>
                      </div>
                   </div>
                   <div class="row">
@@ -84,7 +84,7 @@ $("#readme").show();
                <div class="container" style="width: 100% ; min-width: 1558px;">
                   <div class="row">
                      <div class="col-md-2" style="padding-top: 26px">
-                        <button type="button" style="width: 100%;" onclick="location.href='home.html';"class="btn btn-success">Activate Pedigree</button>
+                        <button type="button" style="width: 100%;" onclick="location.href='pages/home.html';"class="btn btn-success">Activate Pedigree</button>
                      </div>
                      <div class="col-md-2" style="padding-top: 26px">
                         <button type="button" style="width: 100%;" class="btn btn-info" id="uploadData">Read me</button>
