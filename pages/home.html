@@ -18,7 +18,21 @@
 </head>
 
 <body>
-    <div id="searchbar">
+
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" id="navTabs">
+            <li class="nav-item active ">
+                <a class="nav-link active " data-toggle="tab" href="#home" role="tab">Data & Selection</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " data-toggle="tab" href="#pedigreeTab" role="tab">Pedigree</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active " id="home" role="tabpanel">
+                <div id="searchbar">
         <div class="container" style="width: 100% ; min-width: 1558px;">
             <div class="row">
             <div class="col-md-1" style="margin-top: 20px">
@@ -56,19 +70,6 @@
             </div>
         </div>
     </div>
-    <div>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist" id="navTabs">
-            <li class="nav-item active ">
-                <a class="nav-link active " data-toggle="tab" href="#home" role="tab">Data & Selection</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " data-toggle="tab" href="#pedigreeTab" role="tab">Pedigree</a>
-            </li>
-        </ul>
-
-        <div class="tab-content">
-            <div class="tab-pane active " id="home" role="tabpanel">
                 <div id="dataTableDiv">
                     <div id="loader"><img src="triangle_square_animation.gif"></div>
                     <table id="dataTable" class="table table-hover">
@@ -82,8 +83,7 @@
             <div class="tab-pane " id="pedigreeTab" role="tabpanel">
                 <div id="treeSection">
                     <button type="button" id="resetTree" style="width: 100%; float: right;" class="btn btn-info" id="exportData">Reset Tree Zoom Level</button>
-                </div>
-                <div id="infoSection">
+                </div><div id="infoSection">
                  
                     <div id="infoBox">
                       <h2> Cultivar Info</h2>

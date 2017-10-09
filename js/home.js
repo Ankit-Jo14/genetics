@@ -74,7 +74,7 @@
          })
 
          $(document).on('change', "#attributes input[type='checkbox']", function(e) {
-             var limit = 3;
+             var limit = 2;
 
              if($(this).prop("checked")){
                 selected.push($(this).attr('value'));
@@ -107,10 +107,10 @@
              d3.selectAll("foreignObject > div")
                  .html(function(d) {
                      var elementstoAppend = [];
-                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data["Cultivar_Name"];
+                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"].substring(0,15) : "N.A.") + " | " + d.data["Cultivar_Name"];
                      for (var i = 1; i <= selected.length; i++) {
 
-                         var row = "</br>" + selected[i - 1].substring(0,16) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+                         var row = "</br>" + selected[i - 1].substring(0,15) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
                         // var row = "</br>" + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
                          elementstoAppend[i] = "<tr>" + row + "</tr>";
                      }
@@ -615,11 +615,11 @@
              //     .text(function(d) { return d.data.name + d.data.paretnt; });
 
              var foreignobj = nodeEnter.append("foreignObject")
-                 .attr("width", 150)
+                 .attr("width", 200)
                  .attr("height", 55)
                  .attr("y", 0)
                  .attr("x", function(d) {
-                     return d.children || d._children ? -162 : 12;
+                     return d.children || d._children ? -210 : 12;
                  })
                  .attr("text-anchor", function(d) {
                      return d.children || d._children ? "end" : "start";
@@ -632,10 +632,10 @@
 
                  .html(function(d) {
                       var elementstoAppend = [];
-                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data["Cultivar_Name"];
+                     elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"] : "N.A.") + " | " + d.data["Cultivar_Name"].substring(0,15);
                      for (var i = 1; i <= selected.length; i++) {
 
-                         var row = "</br>" + selected[i - 1].substring(0,16) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+                         var row = "</br>" + selected[i - 1].substring(0,15) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
                         // var row = "</br>" + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
                          elementstoAppend[i] = "<tr>" + row + "</tr>";
                      }

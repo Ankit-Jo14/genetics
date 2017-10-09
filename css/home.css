@@ -1,10 +1,10 @@
-html, body { height: 100%; padding: 0; margin: 0;min-width: 1600px; }
+html, body { height: 100%; padding: 0; margin: 0;min-width: 1600px; overflow-x: hidden;}
 
 #searchbar { background: #DDD; min-height:80px; width:100% }
 #dataTableDiv {  height: 850px ; width:100% ; overflow: scroll;}
-#pedigreeTab {height :850px; width:100%; padding-top: 5px;}
+#pedigreeTab {height :950px; width:100%; padding-top: 5px;}
 #treeSection { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
- height:98%; width:75%; display: inline-block; border-radius: 15px}
+ height:100%; width:80%; display: inline-block; border-radius: 15px}
 #infoSection { padding-left: 20px;  height:98% ; width:20% ; display: inline-block ; vertical-align:top;}
 #infoBox { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
    height:50% ; width:100% ;   border-radius: 15px ;margin-bottom: 10px}
@@ -22,6 +22,6 @@ html, body { height: 100%; padding: 0; margin: 0;min-width: 1600px; }
 #siteMap { margin-right: 10px;  height:80% ; width:20% ; min-width: 280px ;display: inline-block ; vertical-align:top;
  -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;}
 
- .welcomePageInfoBox { padding-left: 20px;  height:80% ; width:78% ; display: inline-block ; vertical-align:top;
+ .welcomePageInfoBox { padding-left: 20px;  height:80% ; width:50% ; display: inline-block ; vertical-align:top;
  -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;}
 
