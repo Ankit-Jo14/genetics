@@ -110,7 +110,7 @@
                      elementstoAppend[0] = (d.data["Cultivar_ID"] ? d.data["Cultivar_ID"].substring(0,15) : "N.A.") + " | " + d.data["Cultivar_Name"];
                      for (var i = 1; i <= selected.length; i++) {
 
-                         var row = "</br>" + selected[i - 1].substring(0,15) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
+                         var row = "</br>" + selected[i - 1].substring(0,11) + " : " + (d.data[selected[i - 1]] ? d.data[selected[i - 1]].substring(0,11) : "N.A.");
                         // var row = "</br>" + (d.data[selected[i - 1]] ? d.data[selected[i - 1]] : "N.A.");
                          elementstoAppend[i] = "<tr>" + row + "</tr>";
                      }
@@ -443,7 +443,7 @@
              var columnArray = [];
              for (var i = 0; i < attributeList.length; i++) {
                  var element = attributeList[i];
-                 if (!(element.endsWith("ID") || element.endsWith("Cultivar"))) {
+                 if (element.endsWith("(trait)")) {
                      columnArray[i] = "<div class='checkbox'><label><input type='checkbox' value=" + element + ">" + element + "</label></div> ";
                  }
              }

@@ -1,11 +1,11 @@
 html, body { height: 100%; padding: 0; margin: 0;min-width: 1600px; overflow-x: hidden;}
 
-#searchbar { background: #DDD; min-height:80px; width:100% }
+#searchbar { background: #DDD; min-height:80px; width:100% ;padding-top: 4px;margin-top: 4px }
 #dataTableDiv {  height: 850px ; width:100% ; overflow: scroll;}
 #pedigreeTab {height :950px; width:100%; padding-top: 5px;}
 #treeSection { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
  height:100%; width:80%; display: inline-block; border-radius: 15px}
-#infoSection { padding-left: 20px;  height:98% ; width:20% ; display: inline-block ; vertical-align:top;}
+#infoSection { font-size: 16px;padding-left: 20px;  height:98% ; width:20% ; display: inline-block ; vertical-align:top;}
 #infoBox { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
    height:50% ; width:100% ;   border-radius: 15px ;margin-bottom: 10px}
 #attributeBox { -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;
@@ -16,12 +16,12 @@ html, body { height: 100%; padding: 0; margin: 0;min-width: 1600px; overflow-x: 
 #infoBox h2{  border-bottom-style: solid; border-color: #ff00045; border-radius: 15px 15px 0px 0px;text-align: center;
 	margin: 0px 0px 0px 0px; padding: 4px 4px 4px 4px; background-color: #337ab7; color: white }
 
-#attributes {height: 350px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px}
-#cultivarInfo{ height: 350px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px }
+#attributes {height: 395px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px}
+#cultivarInfo{ height: 400px ; width:100% ; overflow-y: scroll; border-radius: 0px 0px 15px 15px }
 
 #siteMap { margin-right: 10px;  height:80% ; width:20% ; min-width: 280px ;display: inline-block ; vertical-align:top;
  -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;}
 
- .welcomePageInfoBox { padding-left: 20px;  height:80% ; width:50% ; display: inline-block ; vertical-align:top;
+ .welcomePageInfoBox { padding-left: 20px;  height:80% ; width:78% ; display: inline-block ; vertical-align:top;
  -moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;}
 
