@@ -5,6 +5,7 @@
          var table = [];
          var filteredData = [];
          var selected = [];
+         var excludedAttributes=['Cultivar_ID','Cultivar_Name','Female_ID','Female_Name', 'Male_ID', 'Male_Name', 'Pedigree-Original'];
          var i = 0,
              duration = 750,
              root, margin, treemap, svg, g, identifier = 0,
@@ -145,7 +146,7 @@
 
          $(document).on('click', "#resetTree", function(e) {
 
-             d3.select("#treeSection > svg ").transition().duration(1000).call(zoom.transform, d3.zoomIdentity.translate(170, 0));
+             d3.select("#treeSection > svg ").transition().duration(1000).call(zoom.transform, d3.zoomIdentity.translate(210, 0));
 
          })
 
@@ -443,7 +444,7 @@
              var columnArray = [];
              for (var i = 0; i < attributeList.length; i++) {
                  var element = attributeList[i];
-                 if (element.endsWith("(trait)")) {
+                 if (excludedAttributes.indexOf(element)== -1) {
                      columnArray[i] = "<div class='checkbox'><label><input type='checkbox' value=" + element + ">" + element + "</label></div> ";
                  }
              }
@@ -459,7 +460,7 @@
                      top: 20,
                      right: 90,
                      bottom: 30,
-                     left: 170
+                     left: 210
                  },
                  width = 2000 - margin.left - margin.right,
                  height = 1200 - margin.top - margin.bottom;
@@ -480,7 +481,7 @@
 
              g = svg.append("g")
                  .attr("transform", "translate(" +
-                     margin.left + "," + margin.top + ")");
+                     margin.left + "," + -100 + ")");
          }
 
 
@@ -507,8 +508,8 @@
 
              // Assigns parent, children, height, depth
              //root = d3.hierarchy(treeData, function(d) { return d.children; });
-             root.x0 = height / 2;
-             root.y0 = 0;
+            root.x0 = height / 2;
+            root.y0 = 0;
 
              // Collapse after the second level
              //root.children.forEach(collapse);
@@ -741,7 +742,7 @@
 
              // Toggle children on click.
              function click(d) {
-                 console.log("click event fired");
+                
                  if (d.children) {
                      d._children = d.children;
                      d.children = null;

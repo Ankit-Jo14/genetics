@@ -1,4 +1,4 @@
-Cultivar_ID,Cultivar_Name,Cultivar_Alias,Female_ID,Female_Name,Male_ID,Male_Name,Subcollection,State(trait),Country(trait),Year(trait),Pedigree-Original,MG(trait),Stem_Termination,Flower_Color,Pubescence_Color,Pubescence_Form,Pubescence_Density,Pod_Color,Seedcoat_Luster,Seedcoat_Color,Hilum_Color,Other:Seed,Other:Leaf,Other:Plant
+Cultivar_ID,Cultivar_Name,Cultivar_Alias,Female_ID,Female_Name,Male_ID,Male_Name,Subcollection,State,Country,Year,Pedigree-Original,MG,Stem_Termination,Flower_Color,Pubescence_Color,Pubescence_Form,Pubescence_Density,Pod_Color,Seedcoat_Luster,Seedcoat_Color,Hilum_Color,Other:Seed,Other:Leaf,Other:Plant
 Z000001,Woodruff,,PI615694,N7001,PI602597,Boggs,Modern,Georgia,United States,2012,N7001 x Boggs,7,D,W,T,,,Tn,D,Y,Bl,,,
 PI615694,N7001,,Z000002,N77-114,PI416937,PI 416937,Modern,North Carolina,United States,2001,N77-114 x PI 416937,7,D,P,G,E,N,Br,D,Y,Ib,,,
 PI602597,Boggs,,Z000003,G81-152,Z000004,Coker 6738,Modern,Georgia,United States,1998,G81-152 x Coker 6738,6,D,W,T,E,N,Tn,S,Y,Bl,,,
