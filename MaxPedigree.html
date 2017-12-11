@@ -68,11 +68,12 @@ $("#readme").show();
             <div id="introduction">
                <span style="float:left;width: 100%;padding:10px 0px 10px 10px;word-wrap: break-word;">
                <h3>INTRODUCTION</h3>
-               <p>To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree© was developed using JavaScript programming language and MySQL, an open-source relational database system, which can store the data on a local computer or network server. The maxPedigree© interface is connected to the MySQL database and is able to pull the pedigree and trait information for visualization and application by plant breeders.</br>The current version of maxPedigree©  features: 
+               <p>To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree©  Vesrsion 1.0 is developed using JavaScript,HTML and CSS. The maxPedigree© interface reads data from CSV file and is able to pull the pedigree and trait information for visualization and application by plant breeders.</br>The current version of maxPedigree©  features: 
                <ol>
-                  <li>An interactive search-based cultivar-pedigree database, that will allow breeders to look up and visualize pedigree tree information. </li>
+                  <li>An interactive search, that will allow breeders to look up and visualize pedigree tree information. </li>
                   <li> Phenotypic data for descriptors and agronomic traits established by the USDA for the soybean germplasm collection. </li>
                   <li> Exportation of customizable data tables with desired lines and trait data.</li>
+                  <li> Different color for parent gender (Blue for Male and Pink for Female)</li>
                </ol>
                </br> Future features will include: 
                <ol>
@@ -108,7 +109,34 @@ Email: zli@uga.edu</br>
                <sup>1</sup> Institute of Plant Breeding, Genetics, and Genomics, UGA, Athens, GA; 
                <sup>2</sup> Department of Computer Sciences, UGA, Athens, GA</br>
             </span></div>
-            <div id="readme" style="display: none;">readme</div>
+            <div id="readme" style="display: none;">
+              <p><h3>READ ME</h3>
+                <h4>Uploading data : </h4>
+                <ol>
+                  <li> Download the template to upload your cultivar data in predefined format. Columns headings of the template file must not be changed. </li>
+                  <li> Cultivar_ID and Cultivar_Name columns values must be provided in datasheet. </li>
+                  <li> Always save your datasheet in .csv (comma sepeated values) format. for example, data.csv.  </li>
+                  <li> Template File contains test data when downloaded. User can keep that data or delete it. DO NOT CHANGE TEMPLATE FILE HEADER ROW. </li>
+               </ol>
+               <h4>Export Filtered data and search bar : </h4>
+               <ol>
+                 <li>The search bar can be used to filter( based on Cultivar,Maturity Group,Year,Origin) the uploaded data. </li>
+                 <li>The Filtered data can be exported into new csv file by using Export Filter Data button. </li>
+              </ol>
+              <h4>Pedigree visualization :</h4>
+              <ol>
+                <li>Show pedigree button will show the pedigree structure. tree can be zoomed and dragged.</li>
+                <li>click on any cultivar name (or the Red Colored box) will display its information in Cultivar info box.</li>
+                <li>Any one attribute can be selected to be displayed in Tree using attribute selection box. </li>
+             </ol>
+             <h4>Limitations of Version 1.0 : </h4>
+             <ol>
+                <li>MaxPedigree version can Display first 1000 data rows of datasheet. However, the Search, Filteration and show Pedigree function works on whole datasheet.</li>
+                <li>Pedigree tree works great until five generations. However, you might see overlapping of nodes in display after that.  </li>
+                <li>Use of collapsing and expanding function (CLICK ON Cultivar CIRCLE NODE) can help overcome the overlapping of nodes.</li>
+             </ol>
+              </p>
+            </div>
          </div>
    
       </div>

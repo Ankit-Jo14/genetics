@@ -397,7 +397,7 @@
              var $tableHeader = $("#tableHeader");
              var $tableBody = $("#tableBody");
              var columns = dataTable.columns; // get column from main table data as the same fuction is used for filterd data also
-             var dataCount = data.length;
+             var dataCount = data.length > 10 ? 10 : data.length ;
              var columnsCount = columns.length;
              var elementstoAppend = [];
              var showTreeButtonIdentifier = "Cultivar_ID";
