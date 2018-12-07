@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/10433937/49628884-b6bbf180-f9b4-11e8-8715-641b77a34680.png)
+![imakkge](https://user-images.githubusercontent.com/10433937/49628884-b6bbf180-f9b4-11e8-8715-641b77a34680.png)
 
 <h3>INTRODUCTION</h3>
                <p>To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree©  Vesrsion 1.0 is developed using JavaScript,HTML and CSS. The maxPedigree© interface reads data from CSV file and is able to pull the pedigree and trait information for visualization and application by plant breeders.</br>The current version of maxPedigree©  features: 
