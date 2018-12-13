@@ -1,6 +1,9 @@
 
 <h1 align="center">maxPedigree1.0</h1>
-<p>To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree©  Vesrsion 1.0 is developed using JavaScript,HTML and CSS. The maxPedigree© interface reads data from CSV file and is able to pull the pedigree and trait information for visualization and application by plant breeders.</p>
+<p align="center">Abstract</p>
+<p>To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree©  Vesrsion 1.0 is developed using JavaScript,HTML and CSS. The maxPedigree© interface reads data from CSV file and is able to pull the pedigree and trait information for visualization and application by plant breeders.</br> Click here for Version 2.0 : 
+<a href="https://github.com/ankitjoshi14/maxpedigree2.0"> MaxPedigree v2.0</a></p>
+
 <img src="img/homepage.jpg">
 </br>The current version of maxPedigree©  features:
 <ol>
