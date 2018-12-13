@@ -8,14 +8,13 @@
                   <li> Different color for parent gender (Blue for Male and Pink for Female)</li>
                </ol>
                <p>Features:</p>
-                  <ol>
-                  <li>An interactive searchbar</li>
-                  <li><img src="img/data.jpg"></li>
-                  <li> Phenotypic data for descriptors and agronomic traits established by the USDA for the soybean germplasm collection. </li>
-                  <li> Exportation of customizable data tables with desired lines and trait data.</li>
-                  <li> Different color for parent gender (Blue for Male and Pink for Female)</li>
+                 
+                  <p>An interactive searchbar with data table, export and import feature</p>
+                  <img src="img/data.jpg">
+                  
+                  <p> Pedigree tree with different color for parent gender (Blue for MALE and Pink for FEMALE)</p>
                   <li><img src="img/pedigree.jpg"></li>
-               </ol>
+               
 
                </br> Future features will include: 
                <ol>
