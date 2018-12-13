@@ -1,14 +1,15 @@
 
-<h3>maxPedigree1.0</h3>
-<p>To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree©  Vesrsion 1.0 is developed using JavaScript,HTML and CSS. The maxPedigree© interface reads data from CSV file and is able to pull the pedigree and trait information for visualization and application by plant breeders.</br>The current version of maxPedigree©  features: </p>
+<h1 align="center">maxPedigree1.0</h1>
+<p>To assist breeders in making parental selections and tracking breeding materials within their breeding programs, we have developed maxPedigree©, a program for managing pedigree and trait data for cultivars and breeding lines. maxPedigree©  Vesrsion 1.0 is developed using JavaScript,HTML and CSS. The maxPedigree© interface reads data from CSV file and is able to pull the pedigree and trait information for visualization and application by plant breeders.</p>
 <img src="img/homepage.jpg">
+</br>The current version of maxPedigree©  features:
 <ol>
   <li>An interactive search, that will allow breeders to look up and visualize pedigree tree information. </li>
   <li> Phenotypic data for descriptors and agronomic traits established by the USDA for the soybean germplasm collection</li>
   <li> Exportation of customizable data tables with desired lines and trait data.</li>
   <li> Different color for parent gender (Blue for Male and Pink for Female)</li>
 </ol>
-<p>Features:</p>
+
 <p>An interactive searchbar with data table, export and import feature</p>
 <img src="img/data.jpg"/>                  
                   <p> Pedigree tree with different color for parent gender (Blue for MALE and Pink for FEMALE)</p>
